@@ -1,0 +1,8 @@
+Mario Jump
+
+jogo  simples inspirado Mario onde o pérsonagem precisa pular obstaculo.
+tecnologias
+- HMTL
+- CSS
+- JavaScript
+  Abra a tela no navegador e use qualquer tecla para pular.
