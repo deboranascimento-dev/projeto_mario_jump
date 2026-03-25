@@ -32,4 +32,7 @@ const loop = setInterval(()=> {
 }, 10);
 
 document.addEventListener('keydown', jump);
-document.addEventLIstner('touchstart', jump);
+
+document.addEventLIstner('touchstart', () => {
+    mario.classList.add('jump');
+});
