@@ -1,5 +1,11 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe-obstaculo');
+const scoreDispley = document.querySelector('.score')
+let score = 0
+let passad = false
+let gameOver = false
+
+
 
 const jump = () => {
     mario.classList.add('jump');
@@ -10,7 +16,7 @@ const jump = () => {
 
 }
 
-const loop = setInterval(()=> {
+const loop = setInterval(()=> { 
 
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
@@ -20,7 +26,7 @@ const loop = setInterval(()=> {
 
 
     if(pipePosition < marioWidth &&
-        pipePosition> 0 && 
+        pipePosition > 0 && 
         marioPosition < pipeWidth
     ) {
         pipe.style.animation ='none';
@@ -33,9 +39,23 @@ const loop = setInterval(()=> {
         mario.style.width = "75px"
         mario.style.marginLeft = "50px"
 
+        gameOver = true;
+
         clearInterval(loop)
+
+    }
+
+    if (pipePosition <= 0 && pipePosition > -80 && !passad) {
+        score++;
+        scoreDispley.innerHTML = score;
+        passad = true
+    }
+    if(pipePosition > 0) {
+        passad = false;   
     }
 }, 10);
+
+
 
 document.addEventListener('keydown', jump);
 document.addEventListener('touchstart', jump);
