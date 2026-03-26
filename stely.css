@@ -75,3 +75,22 @@
     }
 }
 
+@media (max-width:600px) {
+    .body {
+        touch-action: none;
+    }
+    .game-board {
+        height: 300px;
+
+    }
+    .mario {
+        width: 90px;
+    }
+    .pipe-obstaculo {
+        width: 40px;
+    }
+    .clouds {
+        width: 250px;
+    }
+
+}

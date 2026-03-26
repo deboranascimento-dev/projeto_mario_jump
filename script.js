@@ -15,8 +15,14 @@ const loop = setInterval(()=> {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
+    const pipeWidth = pipe.offsetWidth;
+    const marioWidth = mario.offsetWidth;
 
-    if(pipePosition < 119 && pipePosition > 0 && marioPosition < 90) {
+
+    if(pipePosition < marioWidth &&
+        pipePosition> 0 && 
+        marioPosition < pipeWidth
+    ) {
         pipe.style.animation ='none';
         pipe.style.left = `${pipePosition}px`;
 
@@ -32,7 +38,4 @@ const loop = setInterval(()=> {
 }, 10);
 
 document.addEventListener('keydown', jump);
-
-document.addEventLIstner('touchstart', () => {
-    mario.classList.add('jump');
-});
+document.addEventListener('touchstart', jump);
